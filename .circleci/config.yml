@@ -50,10 +50,10 @@ jobs:
           name: Execute unit test
           # command: php artisan test --testsuite=Feature 'tests/Feature/Http/Controllers/PostControllerTest.php'
           # ./vendor/bin/phpunit
-          # php artisan test --testsuite=Feature
-          command: |
-            mkdir -p ~/reports
-            phpdbg -qrr ./vendor/bin/phpunit --log-junit ./reports/junit.xml tests
+          command: php artisan test --testsuite=Feature
+          #command: |
+          #  mkdir -p ~/reports
+          # phpdbg -qrr ./vendor/bin/phpunit --log-junit ./reports/junit.xml tests
 
   unit-test-frontend:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
