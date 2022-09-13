@@ -29,7 +29,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /var/www/zellwk.com
+            cd /srv/qa.primelabo.com.vn/Testcode-Demo-CI
             git fetch origin master
             git reset --hard FETCH_HEAD
             git clean -d -f --exclude secrets
