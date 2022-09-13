@@ -21,13 +21,24 @@ jobs:
 
       - name: Deploy with rsync
         run: rsync --rsh="/usr/bin/sshpass -p "j6Q8WMBqQ4HXSBBq" ssh -o StrictHostKeyChecking=no" pl@18.139.193.200:/srv/qa.primelabo.com.vn/Testcode-Demo-CI
-
-      - name: pull code
-        run: |
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
             cd /srv/qa.primelabo.com.vn/Testcode-Demo-CI
             git fetch origin master
             git reset --hard FETCH_HEAD
-            git clean -d -f --exclude secrets
-            #npm install --production
-            #chown $(whoami) . # PM2 doesn't recognize root user from Github Actions
-            #npm run restart
+#       - name: pull code
+      
+#         run: |
+#             cd /srv/qa.primelabo.com.vn/Testcode-Demo-CI
+#             git fetch origin master
+#             git reset --hard FETCH_HEAD
+#             git clean -d -f --exclude secrets
+#             #npm install --production
+#             #chown $(whoami) . # PM2 doesn't recognize root user from Github Actions
+#             #npm run restart
