@@ -23,7 +23,7 @@ jobs:
         run: rsync --rsh="/usr/bin/sshpass -p "j6Q8WMBqQ4HXSBBq" ssh -o StrictHostKeyChecking=no" pl@18.139.193.200:/srv/qa.primelabo.com.vn/Testcode-Demo-CI
 
       - name: pull code
-        run:
+        run: |
             cd /srv/qa.primelabo.com.vn/Testcode-Demo-CI
             git fetch origin master
             git reset --hard FETCH_HEAD
