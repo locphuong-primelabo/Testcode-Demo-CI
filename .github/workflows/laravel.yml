@@ -20,7 +20,7 @@ jobs:
 #         run: ssh-keyscan -p ${{ secrets.SSH_PORT}} -H ${{ secrets.SSH_HOST }}  >> ~/.ssh/known_hosts
 
       - name: Deploy with rsync
-        run: rsync -avz ./Testcode-Demo-CI/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/srv/qa.primelabo.com.vn/Testcode-Demo-CI
+        run: sshpass -pj6Q8WMBqQ4HXSBBqrsync -avz ./Testcode-Demo-CI/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/srv/qa.primelabo.com.vn/Testcode-Demo-CI
       - name: Restart Node Server
         uses: appleboy/ssh-action@master
         with:
