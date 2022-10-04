@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+
+// tesst 1244
 namespace App\View\Components;
 
 use Illuminate\View\Component;
